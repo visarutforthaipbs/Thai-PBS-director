@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: thai-pbs-director-api
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: PORT
+        value: 8080
+      - key: NODE_ENV
+        value: production
+      - key: CORS_ORIGIN
+        value: https://thai-pbs-director.vercel.app
