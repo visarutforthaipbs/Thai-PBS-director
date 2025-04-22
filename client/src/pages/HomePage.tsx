@@ -30,7 +30,7 @@ const HomePage: React.FC = () => {
 
       {/* Hero Section */}
       <Box
-        bgImage="url('/hero-section-cover.png')"
+        bgImage={`url('${process.env.PUBLIC_URL}/images/hero-section-cover.png')`}
         bgSize="cover"
         bgPosition="center"
         bgRepeat="no-repeat"

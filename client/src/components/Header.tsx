@@ -45,7 +45,11 @@ const Header: React.FC = () => {
         <Flex justify="space-between" align="center">
           {/* Logo */}
           <RouterLink to="/">
-            <Image src="/logo-1.png" alt="Thai PBS Logo" height="60px" />
+            <Image
+              src={`${process.env.PUBLIC_URL}/images/logo-1.png`}
+              alt="Thai PBS Logo"
+              height="60px"
+            />
           </RouterLink>
 
           {/* Desktop Navigation */}
@@ -79,7 +83,11 @@ const Header: React.FC = () => {
             <DrawerContent>
               <DrawerCloseButton />
               <DrawerHeader borderBottomWidth="1px">
-                <Image src="/logo-1.png" alt="Thai PBS Logo" height="50px" />
+                <Image
+                  src={`${process.env.PUBLIC_URL}/images/logo-1.png`}
+                  alt="Thai PBS Logo"
+                  height="50px"
+                />
               </DrawerHeader>
               <DrawerBody>
                 <VStack spacing={4} align="start" mt={4}>

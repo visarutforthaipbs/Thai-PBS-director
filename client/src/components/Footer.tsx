@@ -11,9 +11,21 @@ const Footer: React.FC = () => {
           align="center"
         >
           <HStack spacing={6} mb={{ base: 4, md: 0 }}>
-            <Image src="/1.png" alt="Thai PBS Logo" height="50px" />
-            <Image src="/2.png" alt="Thai PBS Logo 2" height="50px" />
-            <Image src="/3.png" alt="Thai PBS Logo 3" height="50px" />
+            <Image
+              src={`${process.env.PUBLIC_URL}/images/1.png`}
+              alt="Thai PBS Logo"
+              height="50px"
+            />
+            <Image
+              src={`${process.env.PUBLIC_URL}/images/2.png`}
+              alt="Thai PBS Logo 2"
+              height="50px"
+            />
+            <Image
+              src={`${process.env.PUBLIC_URL}/images/3.png`}
+              alt="Thai PBS Logo 3"
+              height="50px"
+            />
           </HStack>
 
           <Text fontSize="sm">
