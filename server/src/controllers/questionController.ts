@@ -1,8 +1,11 @@
-import { Request, Response } from "express";
+import express from "express";
 import Question from "../models/Question";
 
 // Get all questions with optional filtering
-export const getQuestions = async (req: Request, res: Response) => {
+export const getQuestions = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     const { status, limit = 10 } = req.query;
 
@@ -23,7 +26,10 @@ export const getQuestions = async (req: Request, res: Response) => {
 };
 
 // Create a new question
-export const createQuestion = async (req: Request, res: Response) => {
+export const createQuestion = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     const { name, question, candidateId, category, province } = req.body;
 
@@ -50,7 +56,10 @@ export const createQuestion = async (req: Request, res: Response) => {
 };
 
 // Get a specific question by ID
-export const getQuestionById = async (req: Request, res: Response) => {
+export const getQuestionById = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     const question = await Question.findById(req.params.id);
 
@@ -66,7 +75,10 @@ export const getQuestionById = async (req: Request, res: Response) => {
 };
 
 // Update a question's status
-export const updateQuestionStatus = async (req: Request, res: Response) => {
+export const updateQuestionStatus = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     const { status } = req.body;
 
@@ -92,7 +104,10 @@ export const updateQuestionStatus = async (req: Request, res: Response) => {
 };
 
 // Get the total count of questions
-export const getQuestionsCount = async (req: Request, res: Response) => {
+export const getQuestionsCount = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     const count = await Question.countDocuments();
     res.json({ count });

@@ -1,3 +1,9 @@
+declare namespace Express {
+  export interface Request {}
+  export interface Response {}
+  export interface NextFunction {}
+}
+
 declare module "express" {
   import * as express from "express";
   export = express;

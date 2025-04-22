@@ -1,11 +1,14 @@
-import { Request, Response } from "express";
+import express from "express";
 import Opinion from "../models/Opinion";
 import Candidate from "../models/Candidate";
 import mongoose from "mongoose";
 import { usingMockDb } from "../config/database";
 
 // Submit a new opinion
-export const submitOpinion = async (req: Request, res: Response) => {
+export const submitOpinion = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     const opinion = new Opinion(req.body);
     const savedOpinion = await opinion.save();
@@ -16,7 +19,10 @@ export const submitOpinion = async (req: Request, res: Response) => {
 };
 
 // Get all opinions
-export const getOpinions = async (req: Request, res: Response) => {
+export const getOpinions = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     // Using different approach for mock vs real database
     let opinions;
@@ -37,7 +43,10 @@ export const getOpinions = async (req: Request, res: Response) => {
 };
 
 // Get opinions for a specific candidate
-export const getCandidateOpinions = async (req: Request, res: Response) => {
+export const getCandidateOpinions = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     const opinions = await Opinion.find({
       candidateId: req.params.candidateId,
@@ -51,7 +60,10 @@ export const getCandidateOpinions = async (req: Request, res: Response) => {
 };
 
 // Get aggregated support levels for all candidates
-export const getCandidateSupport = async (req: Request, res: Response) => {
+export const getCandidateSupport = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     const candidates = await Candidate.find();
 
@@ -89,7 +101,10 @@ export const getCandidateSupport = async (req: Request, res: Response) => {
 };
 
 // Get word cloud data from comments
-export const getWordCloudData = async (req: Request, res: Response) => {
+export const getWordCloudData = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     const opinions = await Opinion.find({ comment: { $ne: "" } });
 

@@ -1,4 +1,4 @@
-import express, { Router } from "express";
+import express from "express";
 import {
   getCandidates,
   getCandidateById,
@@ -7,7 +7,7 @@ import {
   deleteCandidate,
 } from "../controllers/candidateController";
 
-const router: Router = express.Router();
+const router = express.Router();
 
 // Get all candidates
 router.get("/", getCandidates);

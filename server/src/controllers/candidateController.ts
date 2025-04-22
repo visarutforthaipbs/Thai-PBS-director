@@ -1,10 +1,13 @@
-import { Request, Response } from "express";
+import express from "express";
 import Candidate from "../models/Candidate";
 import { usingMockDb } from "../config/database";
 import { candidateData } from "../data/candidates"; // Import the real candidate data
 
 // Get all candidates
-export const getCandidates = async (req: Request, res: Response) => {
+export const getCandidates = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     console.log("Getting all candidates");
     const candidates = await Candidate.find();
@@ -17,7 +20,10 @@ export const getCandidates = async (req: Request, res: Response) => {
 };
 
 // Get a single candidate by ID
-export const getCandidateById = async (req: Request, res: Response) => {
+export const getCandidateById = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     const candidate = await Candidate.findById(req.params.id);
 
@@ -32,7 +38,10 @@ export const getCandidateById = async (req: Request, res: Response) => {
 };
 
 // Create a new candidate
-export const createCandidate = async (req: Request, res: Response) => {
+export const createCandidate = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     const candidate = new (Candidate as any)(req.body);
     const savedCandidate = await candidate.save();
@@ -44,7 +53,10 @@ export const createCandidate = async (req: Request, res: Response) => {
 };
 
 // Update a candidate
-export const updateCandidate = async (req: Request, res: Response) => {
+export const updateCandidate = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     const updatedCandidate = await Candidate.findByIdAndUpdate(
       req.params.id,
@@ -63,7 +75,10 @@ export const updateCandidate = async (req: Request, res: Response) => {
 };
 
 // Delete a candidate
-export const deleteCandidate = async (req: Request, res: Response) => {
+export const deleteCandidate = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     const deletedCandidate = await Candidate.findByIdAndDelete(req.params.id);
 
