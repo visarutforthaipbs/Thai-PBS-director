@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import { mockCandidates } from "../config/database";
+import { mockCandidates } from "./candidates";
 
 // Import models
 const CandidateSchema = new mongoose.Schema(
